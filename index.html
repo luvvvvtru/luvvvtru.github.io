@@ -4,6 +4,52 @@
   <title>for joshua</title>
 </head>
 <body>
-  <h1>Happy 6 months baby, I love you more than words can describe. it is almost a year since we first met and I can't believe how much you've changed my life. i am so beyond lucky to have found you, and to be yours. you still give me butterflies, and there is nobody that makes me smile more or laugh harder. love u forever<3 </h1>
+  <import { useState, useEffect } from 'react'
+import { Heart } from 'lucide-react'
+
+export default function Component() {
+  const [timeLeft, setTimeLeft] = useState('')
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date()
+      const anniversary = new Date('2024-10-05T00:00:00')
+      
+      const difference = anniversary.getTime() - now.getTime()
+      
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000)
+      
+      setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`)
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <div className="min-h-screen bg-pink-100 flex flex-col items-center justify-center p-4">
+      <header className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-pink-600 mb-2">Happy 7 Months, My Love!</h1>
+        <p className="text-xl text-pink-500">Every moment with you is a blessing</p>
+      </header>
+
+      <div className="bg-white rounded-lg shadow-lg p-6 mb-8 w-full max-w-md">
+        <h2 className="text-2xl font-semibold text-pink-600 mb-4">Countdown to October 5th, 2024:</h2>
+        <div className="text-3xl font-bold text-pink-500">{timeLeft}</div>
+      </div>
+
+      <div className="relative w-32 h-32 mb-8">
+        <Heart className="w-full h-full text-pink-500 animate-pulse" />
+      </div>
+
+      <footer className="text-center text-pink-600">
+        <p className="text-lg font-semibold">I love you more each day!</p>
+        <p className="text-sm mt-2">xoxo Grainne</p>
+      </footer>
+    </div>
+  )
+}
 </body>
 </html>
