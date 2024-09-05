@@ -4,52 +4,40 @@
   <title>for joshua</title>
 </head>
 <body>
-  <import { useState, useEffect } from 'react'
-import { Heart } from 'lucide-react'
-
-export default function Component() {
-  const [timeLeft, setTimeLeft] = useState('')
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const now = new Date()
-      const anniversary = new Date('2024-10-05T00:00:00')
-      
-      const difference = anniversary.getTime() - now.getTime()
-      
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000)
-      
-      setTimeLeft(`${days}d ${hours}h ${minutes}m ${seconds}s`)
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
-
-  return (
-    <div className="min-h-screen bg-pink-100 flex flex-col items-center justify-center p-4">
-      <header className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-pink-600 mb-2">Happy 7 Months, My Love!</h1>
-        <p className="text-xl text-pink-500">Every moment with you is a blessing</p>
-      </header>
-
-      <div className="bg-white rounded-lg shadow-lg p-6 mb-8 w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-pink-600 mb-4">Countdown to October 5th, 2024:</h2>
-        <div className="text-3xl font-bold text-pink-500">{timeLeft}</div>
-      </div>
-
-      <div className="relative w-32 h-32 mb-8">
-        <Heart className="w-full h-full text-pink-500 animate-pulse" />
-      </div>
-
-      <footer className="text-center text-pink-600">
-        <p className="text-lg font-semibold">I love you more each day!</p>
-        <p className="text-sm mt-2">xoxo Grainne</p>
-      </footer>
-    </div>
-  )
+ <!DOCTYPE html>
+<html>
+<head>
+<title>Happy 7 Months!</title>
+<style>
+body {
+    background-color: #f5c6cb; /* Light pink background */
+    font-family: 'Pacifico', cursive; /* Cute Google Font */
+    text-align: center;
+    color: #d63384; /* Darker pink text */
 }
+h1 {
+    font-size: 3em;
+    margin-top: 20vh; /* Center vertically */
+}
+.heart {
+    color: #ff69b4; /* Hot pink heart */
+    font-size: 2em;
+    animation: heartbeat 1s infinite; /* Simple heartbeat animation */
+}
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+</style>
+</head>
+<body>   
+
+
+    <h1>Happy 7 Months Baby! &#10084;</h1>
+    <p>I love you more every day <span class="heart">&#10084;</span></p>
+
+</body>
+</html>
 </body>
 </html>
